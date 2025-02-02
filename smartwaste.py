@@ -57,7 +57,7 @@ selected_page = st.sidebar.radio("Navegación", ["Inicio", "EcoFriend", "Dashboa
 
 if selected_page == "Inicio":
     st.markdown("<h1 style='text-align: center;'>Proyecto Smart Waste</h1>", unsafe_allow_html=True)
-    st.image("Smartwaste_Streamlit/madrid-sol.jpg", use_container_width=True)
+    st.image("/Users/jaquelinedicroce/Desktop/Bootcamp/Streamlit_SmartWaste/madrid-sol.jpg", use_container_width=True)
     st.markdown(
         f"""
         <p style="text-align:center;">
