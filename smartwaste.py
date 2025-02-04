@@ -74,6 +74,16 @@ Con SmartWaste, queremos contribuir a un entorno más limpio y ordenado, ayudand
         unsafe_allow_html=True,
     )
 
+elif selected_page == "EcoFriend":
+    st.markdown(
+        """
+        <h1 style="text-align:center;">EcoFriend</h1>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.subheader("🔒 Ingrese su clave API de OpenAI para continuar")
+    api_key = st.text_input("Clave API de OpenAI", type="password")
+    
     if api_key:
         try:
             # Configurar OpenAI con la clave proporcionada
