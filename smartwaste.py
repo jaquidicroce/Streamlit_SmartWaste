@@ -53,7 +53,7 @@ def set_custom_style():
 set_custom_style()
 
 # Crear páginas
-selected_page = st.sidebar.radio("Navegación", ["Inicio", "EcoFriend", "Dashboard", "Conócenos"], index=0)
+selected_page = st.sidebar.radio("Navegación", ["Inicio", "EcoFriend", "Dashboard", "Conclusiones", "Conócenos"], index=0)
 
 if selected_page == "Inicio":
     st.markdown("<h1 style='text-align: center;'>Proyecto Smart Waste</h1>", unsafe_allow_html=True)
@@ -74,16 +74,6 @@ Con SmartWaste, queremos contribuir a un entorno más limpio y ordenado, ayudand
         unsafe_allow_html=True,
     )
 
-elif selected_page == "EcoFriend":
-    st.markdown(
-        """
-        <h1 style="text-align:center;">EcoFriend</h1>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.subheader("🔒 Ingrese su clave API de OpenAI para continuar")
-    api_key = st.text_input("Clave API de OpenAI", type="password")
-
     if api_key:
         try:
             # Configurar OpenAI con la clave proporcionada
@@ -98,7 +88,7 @@ elif selected_page == "EcoFriend":
 
                     # Asegúrese de que el índice se haya guardado previamente usando Chroma
                     embeddings = OpenAIEmbeddings(openai_api_key=api_key)
-                    vector_store = Chroma(persist_directory="/Users/jaquelinedicroce/Desktop/Bootcamp/Proyecto_Final_Smartwaste_Madrid/Smartwaste_Streamlit/vector_store", embedding_function=embeddings)
+                    vector_store = Chroma(persist_directory="/Users/jaquelinedicroce/Desktop/Bootcamp/Streamlit_SmartWaste/vector_store", embedding_function=embeddings)
                     return vector_store
                 except Exception as e:
                     st.error(f"Error al cargar el modelo RAG: {e}")
@@ -128,6 +118,7 @@ elif selected_page == "EcoFriend":
             st.error(f"Clave API inválida o error: {e}")
     else:
         st.info("Por favor, ingrese su clave API para comenzar.")
+
 
 elif selected_page == "Dashboard":
     st.markdown("<h2 style='text-align: center;'>📊 Dashboard del Proyecto</h2>", unsafe_allow_html=True)
@@ -165,6 +156,16 @@ elif selected_page == "Dashboard":
                 """,
                 height=600,
             )
+
+elif selected_page == "Conclusiones":
+    st.markdown("<h2 style='text-align: center;'>Conclusiones</h2>", unsafe_allow_html=True)
+    st.markdown(
+        f"""
+        <div style="text-align:center;">
+        <p style="text-align:center;">CONCLUSIONES!!. 🌍♻️</p>
+        """,
+        unsafe_allow_html=True,
+    )
 
 elif selected_page == "Conócenos":
     st.markdown("<h2 style='text-align: center;'>Conoce al Equipo</h2>", unsafe_allow_html=True)
